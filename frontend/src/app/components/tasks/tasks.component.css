@@ -1,0 +1,56 @@
+.example-card {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  width: 300px;
+  height: 120px;
+  transition: box-shadow 0.3s;
+  overflow-y: hidden;
+  background-color: ghostwhite;
+}
+
+.example-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.card-wrapper {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.mat-card-title-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.button-container {
+  margin-left: auto;
+}
+
+mat-form-field {
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+textarea {
+  resize: horizontal;
+  width: 100%;
+}
+
+.mat-raised-button {
+  margin-right: 10px;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+  .pagination-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }

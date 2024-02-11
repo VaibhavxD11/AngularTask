@@ -1,0 +1,59 @@
+<div class="user-container">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title-group>
+        <mat-card-title
+        >Welcome back, {{ authData[0]["username"] }}</mat-card-title
+        >
+        <mat-card-subtitle>{{ authData[0]["email"] }}</mat-card-subtitle>
+      </mat-card-title-group>
+    </mat-card-header>
+    <mat-card-content>
+      <button
+        mat-icon-button
+        color="primary"
+        aria-label="Logout"
+        class="logout-button"
+        matTooltip="Logout"
+        (click)="onLogout()"
+      >
+        <mat-icon>exit_to_app</mat-icon>
+      </button>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<div class="create-task-button-container">
+  <button
+    mat-raised-button
+    matTooltip="Just Do It"
+    matTooltipPosition="after"
+    aria-label="Button that displays a tooltip in various positions"
+    (click)="onPopupOpen()"
+  >
+    Create Task
+  </button>
+</div>
+
+<div class="card-container">
+  <div
+    *ngFor="
+      let obj of final | paginate : { itemsPerPage: itemsCount, currentPage: page }
+    "
+    class="card-wrapper"
+    >
+    <app-tasks
+    [title]="obj['ele']['title']"
+    [date]="obj['due_date']"
+    [desc]="obj['ele']['task_desc']"
+    [id]="obj['ele']['task_id']"
+    ></app-tasks>
+   
+  </div>
+</div>
+
+<pagination-controls *ngIf="final.length>itemsCount"
+  class="pagination-controls"
+  (pageChange)="page = $event"
+></pagination-controls>
+

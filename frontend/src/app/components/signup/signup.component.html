@@ -1,0 +1,81 @@
+<form [formGroup]="signupForm" (ngSubmit)="onSubmit()" novalidate>
+  <div class="example-container">
+    <div class="header-container">
+      <h1 class="header-text">Register Your Account</h1>
+    </div>
+    <mat-form-field appearance="outline">
+      <mat-label>Enter Username</mat-label>
+      <input
+        matInput
+        placeholder="HelloxWorld"
+        formControlName="username"
+        required
+      />
+      <mat-error *ngIf="username?.hasError('required') || username?.hasError('spaces')">Min. 3 characters,No Spaces</mat-error>
+      <!-- <mat-error *ngIf="username?.hasError('spaces')">Empty Spaces</mat-error> -->
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Enter your email</mat-label>
+      <input
+        matInput
+        placeholder="xyz@example.com"
+        formControlName="email"
+        required
+      />
+      <mat-error *ngIf="email?.invalid">{{ getErrorMessage() }}</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Enter your Password</mat-label>
+      <input
+        matInput
+        formControlName="password"
+        required
+        [type]="show ? 'text' : 'password'"
+      />
+      <button
+        mat-icon-button
+        matSuffix
+        type="button"
+        (click)="passwordVisibility($event)"
+      >
+        <mat-icon>{{ show ? "visibility" : "visibility_off" }}</mat-icon>
+      </button>
+      <mat-error *ngIf="password?.invalid">Min length 7, required</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Confirm Password</mat-label>
+      <input matInput formControlName="cnfpassword" required 
+      [type]="showCnf ? 'text' : 'password'"
+      />
+      <button
+        mat-icon-button
+        matSuffix
+        type="button"
+        (click)="showPassword($event)"
+      >
+        <mat-icon>{{ showCnf ? "visibility" : "visibility_off" }}</mat-icon>
+      </button>
+      <mat-error *ngIf="signupForm.hasError('mismatch', 'cnfpassword')"
+        >Passwords don't match</mat-error
+      >
+    </mat-form-field>
+    <mat-divider></mat-divider>
+    <section>
+      <div class="example-button-row">
+        <button
+          mat-raised-button
+          type="submit"
+          [ngClass]="{ 'valid-button': signupForm.valid }"
+          [disabled]="!signupForm.valid"
+        >
+          Submit
+        </button>
+      </div>
+    </section>
+    <section>
+      <div class="example-button-row">
+        <a routerLink="/login">Already have an Account?</a>
+      </div>
+    </section>
+  </div>
+</form>

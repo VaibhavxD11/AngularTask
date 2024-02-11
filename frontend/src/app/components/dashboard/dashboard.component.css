@@ -1,0 +1,59 @@
+.user-container {
+    width: 100%;
+    margin-bottom: 20px;
+    text-align: center;
+    position: relative;
+  }
+
+  .example-card {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    background-color: rgb(165, 194, 194);
+  }
+
+  
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 30px;
+  }
+  
+  .card-wrapper {
+    width: 30%;
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 10px;
+  }
+  
+  .example-card {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+  }
+
+  .logout-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+
+  .create-task-button-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+  }
+
+  
+.create-task-button-container button {
+  background-color: #22a022; 
+  color: #FFFFFF;
+}
+  
+  .pagination-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  

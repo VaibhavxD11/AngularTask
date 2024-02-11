@@ -1,0 +1,19 @@
+.dialog-container {
+    padding: 20px;
+    text-align: left;
+    max-height: 80vh;
+    overflow: auto;
+    word-wrap: break-word;
+    min-width: 400px;
+  }
+  
+  .scrollable-content {
+    max-height: calc(80vh - 80px);
+    overflow: auto;
+    word-wrap: break-word;
+  }
+  
+  .subtitle {
+    color: #555;
+  }
+  

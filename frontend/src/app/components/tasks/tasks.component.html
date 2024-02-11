@@ -1,0 +1,37 @@
+<div class="card-wrapper" (click)="toggleCard()">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div class="mat-card-title-group">
+        <mat-card-title>{{ title.length>15 ? (title | slice:0:15) : title }}</mat-card-title>
+        <mat-card-subtitle>Due: {{ date }}</mat-card-subtitle>
+      </div>
+      <div class="button-container">
+        <button
+          mat-icon-button
+          color="primary"
+          aria-label="Edit"
+          matTooltip="Edit"
+          (click)="onPopupOpen($event)"
+          matTooltipPosition="above"
+        >
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button
+          mat-icon-button
+          color="primary"
+          aria-label="delete"
+          matTooltip="Delete"
+          matTooltipPosition="above"
+          (click)="deleteTask()"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </mat-card-header>
+    <mat-card-content>
+      <ng-container *ngIf="!isEditing">
+        {{ desc.length > 50 ? (desc | slice : 0 : 30) : desc }}
+      </ng-container>
+    </mat-card-content>
+  </mat-card>
+</div>

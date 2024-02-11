@@ -1,0 +1,50 @@
+<form [formGroup]="createTask" (ngSubmit)="onSubmit()">
+  <div class="dialog-container">
+    <h1 mat-dialog-title>Create a New Task</h1>
+    <div mat-dialog-content></div>
+    <div class="example-container">
+      <mat-form-field appearance="fill">
+        <mat-label>Title</mat-label>
+        <input matInput formControlName="title" required />
+        <mat-error *ngIf="createTask.get('title')?.invalid">
+          Please enter a value
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="date-picker">
+        <mat-label>Due Date</mat-label>
+        <input
+          matInput
+          [matDatepicker]="picker"
+          formControlName="due_date"
+          required
+        />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="createTask.get('due_date')?.hasError('invalidDate')">
+          Due date can't be null or in past.
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Enter Description</mat-label>
+        <textarea matInput formControlName="task_desc"></textarea>
+        <mat-error *ngIf="createTask.get('task_desc')?.invalid">
+          Empty Description
+        </mat-error>
+      </mat-form-field>
+      <section>
+        <div class="example-button-row">
+          <button
+            mat-raised-button
+            type="submit"
+            [disabled]="!createTask.valid"
+          >
+            Submit
+          </button>
+        </div>
+      </section>
+    </div>
+    <div mat-dialog-actions>
+      <button mat-button mat-dialog-close class="close-btn">Close</button>
+    </div>
+  </div>
+</form>

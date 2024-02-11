@@ -1,0 +1,43 @@
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
+    <div class="example-container">
+      <div class="header-container">
+        <h1 class="header-text">Todo App</h1>
+      </div>
+      <mat-form-field appearance="outline">
+        <mat-label>Enter your username</mat-label>
+        <input
+          matInput
+          placeholder="Username"
+          formControlName="username"
+          required
+        />
+        <mat-error *ngIf="username?.invalid">Min. 3 Characters</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Enter your Password</mat-label>
+        <input matInput formControlName="password" required [type]="show ? 'text' : 'password'"  />
+        <button mat-icon-button matSuffix
+        type="button"
+        (click)="passwordVisibility($event)">
+          <mat-icon>{{ show ? 'visibility' : 'visibility_off' }}</mat-icon>
+        </button>
+        <mat-error *ngIf="password?.invalid">Min length 7, required</mat-error>
+      </mat-form-field>
+      <mat-divider></mat-divider>
+      <section>
+        <div class="example-button-row">
+          <button mat-raised-button type="submit" 
+          [ngClass]="{'valid-button': loginForm.valid}"
+          [disabled]="!loginForm.valid">Submit</button>
+        </div>
+      </section>
+      <section>
+        <div class="example-button-row">
+          <a routerLink="/signup">Create Account</a>
+        </div>
+        <!-- <div class="example-button-row">
+            <a routerLink="/forgotpassword">Forgot Password?</a>
+        </div> -->
+      </section>
+    </div>
+</form>
